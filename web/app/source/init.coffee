@@ -3,7 +3,9 @@ root.calatrava ?= {}
 calatrava = root.calatrava
 
 $(document).ready ->
+  $('.page').hide()
   trovilibron.bookSearch.start()
+  trovilibron.bookSearchResult.start()
   calatrava.bridge.changePage "bookSearchForm"
 
 window.onpopstate = (event) ->

@@ -2,5 +2,4 @@ trovilibron ?= {}
 trovilibron.bookSearch ?= {}
 
 trovilibron.bookSearch.start = ->
-  # Registering page
-  calatrava.bridge.pages.pageNamed "bookSearchForm"
+  trovilibron.bookSearch.controller calatrava.bridge.pages.pageNamed "bookSearchForm"
