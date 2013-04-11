@@ -1,10 +1,9 @@
 calatrava.pageView ?= {}
 
-calatrava.pageView.bookSearchResult = ->
-  $page = $('#bookSearchResult')
+calatrava.pageView.booksList = ->
+  $page = $('#booksList')
 
   get: (field) ->
-    console.log("get ... ", field)
     $page.find("#" + field).val()
 
   render: (message) ->    
@@ -14,9 +13,7 @@ calatrava.pageView.bookSearchResult = ->
     console.log("bind ... ", event)
 
   show: ->
-    console.log("show result ... ")
     $page.show()
 
   hide: ->
-    console.log('hide result ... ')
     $page.hide()

@@ -11,7 +11,7 @@ trovilibron.bookSearch.controller = (view)->
         title: $(item).find('best_book title').text()
       }
     console.log(books)
-    calatrava.bridge.changePage 'bookSearchResult'
+    calatrava.bridge.changePage 'booksList'
     $('#list').empty().html ich.bookItem
       books: books
     
