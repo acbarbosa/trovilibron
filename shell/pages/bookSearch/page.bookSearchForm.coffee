@@ -4,7 +4,6 @@ calatrava.pageView.bookSearchForm = ->
   $page = $('#bookSearchForm')
 
   get: (field) ->
-    console.log("get ... ", field)
     $page.find("#" + field).val()
 
   render: (message) ->    

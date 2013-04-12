@@ -2,7 +2,6 @@ trovilibron ?= {}
 trovilibron.bookSearch ?= {}
 
 trovilibron.bookSearch.controller = (view)->
-  searchKey = ''
 
   renderSearchResults = (data) ->
     booksResults = $(data).find('work')
@@ -20,14 +19,12 @@ trovilibron.bookSearch.controller = (view)->
     console.log(error)
 
   search = ->
+    query = view.get 'book_search', (v) -> console.log(v)
     calatrava.bridge.request
-      url: "http://localhost:8000/books?q=" + searchKey
+      url: "http://localhost:8000/books?q=" + query
       method: "get"
       contentType: "xml"
       success: renderSearchResults
       failure: renderErrorMessage
 
-  view.bind 'keySearchInput', (event) ->
-    searchKey = $(event.currentTarget).val()
-    
   view.bind 'search', search
