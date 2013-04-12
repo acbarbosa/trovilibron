@@ -9,8 +9,9 @@ trovilibron.bookSearch.controller = (view)->
       {
         title: $(item).find('best_book title').text()
       }
-    console.log(books)
+
     calatrava.bridge.changePage 'booksList'
+    $('#query').empty().html $(data).find('search query')
     $('#list').empty().html ich.bookItem
       books: books
     
@@ -19,7 +20,8 @@ trovilibron.bookSearch.controller = (view)->
     console.log(error)
 
   search = ->
-    query = view.get 'book_search', (v) -> console.log(v)
+    query = ''
+    view.get 'book_search', (v) -> query = v
     calatrava.bridge.request
       url: "http://localhost:8000/books?q=" + query
       method: "get"
