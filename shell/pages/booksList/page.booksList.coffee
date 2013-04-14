@@ -7,7 +7,9 @@ calatrava.pageView.booksList = ->
     $page.find("#" + field).val()
 
   render: (message) ->    
-    console.log("render ... ", message)
+    $('#query').empty().html message.query
+    $('#list').empty().html ich.bookItem
+      books: message.books
 
   bind: (event, handler) ->
     console.log("bind ... ", event)

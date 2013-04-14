@@ -1,7 +1,8 @@
 %script#bookItem(type='text/html')
   {{#books}}
-  %li
+  %li.book(id='{{ id }}')
     %p.title {{ title }}
+    %p.author {{ author.name }}
   {{/books}}
 
 

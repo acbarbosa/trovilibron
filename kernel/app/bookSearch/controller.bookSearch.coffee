@@ -1,27 +1,37 @@
 trovilibron ?= {}
 trovilibron.bookSearch ?= {}
 
-trovilibron.bookSearch.controller = (view)->
+trovilibron.bookSearch.controller = (searchView)->
+
+  parseSearchResult = (data) ->
+    query = $(data).find('search query')
+    booksResults = $(data).find('work')
+    {
+      query: query
+      books: _.map booksResults, (item) ->
+        best_book = $(item).find('best_book')
+        {
+          id: best_book.find('id').text()
+          title:  best_book.find('title').text()
+          author: {
+            id: best_book.find('author id').text()
+            name: best_book.find('author name').text()
+          }
+        }
+    }
+
 
   renderSearchResults = (data) ->
-    booksResults = $(data).find('work')
-    books = _.map booksResults, (item) ->
-      {
-        title: $(item).find('best_book title').text()
-      }
-
     calatrava.bridge.changePage 'booksList'
-    $('#query').empty().html $(data).find('search query')
-    $('#list').empty().html ich.bookItem
-      books: books
-    
+    trovilibron.booksList.view.render parseSearchResult data
 
+    
   renderErrorMessage = ->
     console.log(error)
 
   search = ->
     query = ''
-    view.get 'book_search', (v) -> query = v
+    searchView.get 'book_search', (v) -> query = v
     calatrava.bridge.request
       url: "http://localhost:8000/books?q=" + query
       method: "get"
@@ -29,4 +39,4 @@ trovilibron.bookSearch.controller = (view)->
       success: renderSearchResults
       failure: renderErrorMessage
 
-  view.bind 'search', search
+  searchView.bind 'search', search
