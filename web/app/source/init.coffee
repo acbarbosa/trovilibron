@@ -6,6 +6,7 @@ $(document).ready ->
   $('.page').hide()
   trovilibron.bookSearch.start()
   trovilibron.booksList.start()
+  trovilibron.book.start()
   calatrava.bridge.changePage "bookSearchForm"
 
 window.onpopstate = (event) ->

@@ -1,7 +1,7 @@
 trovilibron ?= {}
 trovilibron.bookSearch ?= {}
 
-trovilibron.bookSearch.controller = (searchView)->
+trovilibron.bookSearch.createController = (searchView) ->
 
   parseSearchResult = (data) ->
     query = $(data).find('search query')
@@ -22,12 +22,12 @@ trovilibron.bookSearch.controller = (searchView)->
 
 
   renderSearchResults = (data) ->
-    calatrava.bridge.changePage 'booksList'
-    trovilibron.booksList.view.render parseSearchResult data
+    trovilibron.booksList.controller.renderView parseSearchResult data
 
     
   renderErrorMessage = ->
     console.log(error)
+
 
   search = ->
     query = ''

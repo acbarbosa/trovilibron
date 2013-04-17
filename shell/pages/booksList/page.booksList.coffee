@@ -13,6 +13,9 @@ calatrava.pageView.booksList = ->
 
   bind: (event, handler) ->
     console.log("bind ... ", event)
+    switch event
+      when 'book' then $('.book').off('click').on('click', handler)
+      else console.log('Unknown binding element')
 
   show: ->
     $page.show()
