@@ -7,7 +7,12 @@
     - Calatrava::Project.current.mobile_web.scripts.each do |filename|
       %script(type="text/javascript" src="#{filename}")
 
+    %link(type="text/css" rel="stylesheet" href="styles/shell.css")
+
   %body
     %div#app_container.container
       - Calatrava::Project.current.mobile_web.haml_files.each do |hf|
         = render_partial hf
+
+  %div#footer
+    %span.goodreads Powered by GoodReads

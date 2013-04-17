@@ -8,7 +8,7 @@ trovilibron.bookSearch.createController = (searchView) ->
     booksResults = $(data).find('work')
     {
       query: query
-      books: _.map booksResults, (item) ->
+      books: _.map booksResults, (item, index) ->
         best_book = $(item).find('best_book')
         {
           id: best_book.find('id').text()
@@ -17,6 +17,7 @@ trovilibron.bookSearch.createController = (searchView) ->
             id: best_book.find('author id').text()
             name: best_book.find('author name').text()
           }
+          class: if index % 2 == 0 then 'even' else 'odd'
         }
     }
 

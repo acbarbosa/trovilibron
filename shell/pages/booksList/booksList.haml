@@ -1,11 +1,11 @@
 %script#bookItem(type='text/html')
   {{#books}}
-  %li.book(id='{{ id }}')
+  %li{:id => "{{ id }}", :class => "{{ class }}"}
     %p.title {{ title }}
     %p.author {{ author.name }}
   {{/books}}
 
 
 %div#booksList.page
-  %h3#title Search Result for <span id='query'></span>
+  %h1 Search Results for <span id='query'></span>
   %ul#list

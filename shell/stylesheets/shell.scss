@@ -1,0 +1,92 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.2em;
+    background-color: #FFFFFF;
+    color: #000000;
+}
+
+input {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.0em;
+    border: 4px solid #DC5B21;
+}
+
+#app_container {
+    background-color: #EDE6CF;
+    color: #000000;
+    margin: 5px auto;
+    padding: 5px;
+    width: 100%;
+    min-height: 120px;
+    display: table;
+}
+
+.page {
+    min-width: 120px;
+    display: table-cell;
+    vertical-align: middle;
+    margin: auto;
+
+    h1 {
+        font-size: 1.4em;
+        text-align: center;
+    }
+}
+
+#bookSearchForm {
+    #book_search {
+        display: block;
+        margin: auto;
+    }
+    #search {
+        display: block;
+        margin: 10px auto;
+        font-size: 1.0em;
+        padding: 5px;
+    }
+}
+
+#booksList {
+    #query {
+        color: #DC5B21;
+    }
+    #list {
+        list-style: none;
+        margin: auto;
+
+        li {
+            padding: 5px;
+            font-size: 1.0em;
+
+            &:hover {
+                font-size: 1.1em;
+            }
+
+            &.even {
+                background-color: #70AB8F;
+                border: 4px solid #70AB8F;
+                &:hover {
+                    border-color: #DC5B21;
+                }
+            }
+
+            &.odd {
+                border: 4px solid #EDE6CF;
+                &:hover {
+                    border-color: #DC5B21;
+                }
+            }
+
+            p {
+                display: block;
+                margin: 0;
+                padding: 0;
+            }
+        }
+    }
+}
+
+#footer {
+    font-size: 0.5em;
+    text-align: right;
+}
