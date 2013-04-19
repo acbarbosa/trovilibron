@@ -4,9 +4,12 @@ trovilibron.booksList ?= {}
 trovilibron.booksList.createController = (listView) ->
 
   parseBookData = (data) ->
-    title: $(data).find('book title').text()
-    author: _.map( $(data).find('book authors author'), (author) ->
+    book = $( $(data).find 'GoodreadsResponse > book' ) 
+    title: book.find('title').text()
+    author: _.map( book.find('authors:nth-child(2n) author'), (author) ->
       $(author).find('name').text() )
+    imageUrl: book.find('small_image_url:nth-child(1n)').text()
+    description: book.find('description:nth-child(1n)').text()
 
   
   renderBook = (data) ->
@@ -18,7 +21,7 @@ trovilibron.booksList.createController = (listView) ->
 
 
   bookReview = (event)->
-    target = $(event.target)
+    target = $(event.currentTarget)
     calatrava.bridge.request
       url: "http://localhost:8000/book/" + target.attr('id')
       method: "get"

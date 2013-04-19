@@ -86,6 +86,28 @@ input {
     }
 }
 
+#book {
+    .bookHeader {
+        display: table;
+        margin: auto;
+
+        .identification {
+            display: inline-block;
+            margin-left: 15px;
+            .title {
+                text-align: left;
+            }
+            .author {
+                font-size: 1.1em;
+                margin-left: 15px;
+            }
+        }
+    }
+    .description {
+        padding: 15px 10px;
+    }
+}
+
 #footer {
     font-size: 0.5em;
     text-align: right;

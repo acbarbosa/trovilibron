@@ -1,6 +1,11 @@
 %script#bookTemplate(type='text/html')
-  %h3#title {{ title }}
-  %h2#author by {{ author }}
+  %div.bookHeader    
+    %img(src="{{ imageUrl }}")
+    %div.identification
+      %h1.title {{ title }}
+      %h3.author by {{ author }}
+  %div.description 
+    {{{ description }}}
 
 %div#book.page
 

@@ -7,10 +7,7 @@ calatrava.pageView.book = ->
     $page.find("#" + field).val()
 
   render: (message) ->
-    $page.empty().html ich.bookTemplate
-      title: message.title
-      author: message.author
-      
+    $page.empty().html ich.bookTemplate message
     console.log("render ... ", message)
 
   bind: (event, handler) ->
